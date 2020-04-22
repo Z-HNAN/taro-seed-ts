@@ -4,6 +4,7 @@ import { Provider } from '@tarojs/redux'
 
 import AppContainer from '@pages/App'
 
+import 'mp-colorui/dist/style/index.scss'
 import './app.scss'
 
 import configStore from './store'
