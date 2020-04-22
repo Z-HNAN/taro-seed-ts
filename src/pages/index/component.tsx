@@ -1,6 +1,8 @@
 import Taro, { useState } from '@tarojs/taro'
 import { View, Text, Button } from '@tarojs/components'
 
+import { ClButton } from 'mp-colorui'
+
 interface IndexProps {
   onAsyncAdd: () => any;
   onNavigateTo: () => any;
@@ -18,6 +20,7 @@ const Index: Taro.FC<IndexProps> = (props: IndexProps) => {
       <Text>Hello world!</Text>
       <Button onClick={onAsyncAdd}>onAsyncAdd</Button>
       <Button onClick={() => { setCount((c) => c + 1) }}>onSyncAdd: {count}</Button>
+      <ClButton>ColorUI</ClButton>
     </View>
   )
 }
