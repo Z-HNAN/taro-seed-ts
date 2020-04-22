@@ -12,5 +12,13 @@
     },
     "useJSXTextNode": true,
     "project": "./tsconfig.json"
+  },
+  "globals": {
+    // 某些情况使用基本数据类型出现no-undef
+    "boolean": true,
+    "number": true,
+    "string": true,
+    "object": true,
+    "any": true
   }
 }
