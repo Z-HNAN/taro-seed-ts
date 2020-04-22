@@ -1,0 +1,22 @@
+taro-seed-ts
+===
+
+taro seed project use redux
+
+## 快速开始
+
+```bash
+# 使用taroCLI进行创建
+
+yarn
+yarn start # start命令关联了weapp的dev命令
+```
+
+## 分支管理
+
+master：无UI的分支
+
+taro-ui: 整合了`taro-ui`的分支
+
+color-ui: 整合了`color-ui`的分支
+
