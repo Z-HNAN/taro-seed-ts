@@ -4,24 +4,34 @@ import { Dispatch } from 'redux'
 import { connect } from '@tarojs/redux'
 import { IConnectState } from '@src/store/reducer'
 
+import { async, sync } from './actions'
+
 import IndexComponent from './component'
 
 import './index.scss'
 
-type IndexProps = {
+const {
+  asyncAdd,
+} = async
 
-}
+const {
+  add,
+} = sync
+
+
+type IndexProps = { }
 type IndexStateProps = {
-  connectState: any
+  count: number;
 }
 type IndexDispatchProps = {
-  onAsyncAdd: () => any
+  onAsyncAdd: (count: number) => any;
+  onSyncAdd: (count: number) => any;
 }
 
 type IProps = IndexProps & IndexStateProps & IndexDispatchProps
 
 type IState = {
-  count: number
+  count: number;
 }
 
 interface Index {
@@ -30,15 +40,19 @@ interface Index {
 }
 
 const mapStateToProps = (state: IConnectState) => {
+  const { count } = state.index
   return {
-    connectState: null
+    count,
   }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch<any>) => {
   return {
-    onAsyncAdd: () => {
-      dispatch({ type: 'a', payload: 'aa' })
+    onAsyncAdd: (newCount) => {
+      dispatch(asyncAdd({ count: newCount}))
+    },
+    onSyncAdd: (newCount) => {
+      dispatch(add({ count: newCount }))
     }
   }
 }
@@ -66,21 +80,18 @@ class Index extends PureComponent<IProps, IState> {
     navigationBarTitleText: '首页'
   }
 
-  navigate () {
-    Taro.navigateTo({ url: '/pages/otherPage' }).then(() => {
-      console.log('navigated!!!');
-    })
-  }
-
   render () {
     const {
+      count,
       onAsyncAdd,
+      onSyncAdd,
     } = this.props
 
     return (
       <IndexComponent
+        count={count}
         onAsyncAdd={onAsyncAdd}
-        onNavigateTo={this.navigate}
+        onSyncAdd={onSyncAdd}
       />
     )
   }
