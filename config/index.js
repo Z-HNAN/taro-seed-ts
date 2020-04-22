@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/no-commonjs
+const { resolve } = require('path')
+
 const config = {
   projectName: 'recipe',
   date: '2020-4-21',
@@ -30,6 +33,10 @@ const config = {
   },
   plugins: [],
   defineConstants: {
+  },
+  alias: {
+    '@src': resolve(__dirname, '..', 'src'),
+    '@pages': resolve(__dirname, '..', 'src/pages'),
   },
   mini: {
     postcss: {

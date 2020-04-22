@@ -1,7 +1,15 @@
+import '@tarojs/async-await';
 import Taro, { Component, Config } from '@tarojs/taro'
-import Index from './pages/index'
+import { Provider } from '@tarojs/redux'
 
+import AppContainer from '@pages/App'
+
+import 'mp-colorui/dist/style/index.scss'
 import './app.scss'
+
+import configStore from './store'
+
+const store = configStore()
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -28,7 +36,15 @@ class App extends Component {
    */
   config: Config = {
     pages: [
-      'pages/index/index'
+      'pages/Index/index', // 首页
+      'pages/Recipe/Lib/index', // 配方库
+      'pages/Recipe/Create/index', // 新增配方
+      'pages/Recipe/Info/index', // 配方详情
+      'pages/Recipe/Make/index', // 使用配方
+      'pages/Recipe/AddPurchase/index', // 添加采购
+      'pages/PurchaseOrder/index', // 采购单
+      'pages/Conversion/index', // 换算比例
+      'pages/ComparePrice/index', // 价格比较
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -42,7 +58,9 @@ class App extends Component {
   // 请勿修改此函数
   render () {
     return (
-      <Index />
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>
     )
   }
 }

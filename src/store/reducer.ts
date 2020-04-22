@@ -1,8 +1,14 @@
 import { combineReducers } from 'redux'
 
-// import homeReducer from '../pages/Home/reducer'
+import RecipeReducer, { StateType } from '@pages/Recipe/reducer'
 
 
-export default combineReducers({
+export interface IConnectState {
+  recipe: StateType
+  
+}
+
+export default combineReducers<IConnectState>({
+  recipe: RecipeReducer,
   // home: homeReducer,
 })
