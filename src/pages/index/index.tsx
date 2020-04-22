@@ -31,7 +31,7 @@ interface Index {
 
 const mapStateToProps = (state: IConnectState) => {
   return {
-    connectState: state.recipe
+    connectState: null
   }
 }
 
@@ -67,7 +67,7 @@ class Index extends PureComponent<IProps, IState> {
   }
 
   navigate () {
-    Taro.navigateTo({ url: '/pages/ComparePrice/index' }).then(() => {
+    Taro.navigateTo({ url: '/pages/otherPage' }).then(() => {
       console.log('navigated!!!');
     })
   }

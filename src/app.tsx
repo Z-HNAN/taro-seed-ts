@@ -4,7 +4,6 @@ import { Provider } from '@tarojs/redux'
 
 import AppContainer from '@pages/App'
 
-import 'mp-colorui/dist/style/index.scss'
 import './app.scss'
 
 import configStore from './store'
@@ -37,14 +36,6 @@ class App extends Component {
   config: Config = {
     pages: [
       'pages/Index/index', // 首页
-      'pages/Recipe/Lib/index', // 配方库
-      'pages/Recipe/Create/index', // 新增配方
-      'pages/Recipe/Info/index', // 配方详情
-      'pages/Recipe/Make/index', // 使用配方
-      'pages/Recipe/AddPurchase/index', // 添加采购
-      'pages/PurchaseOrder/index', // 采购单
-      'pages/Conversion/index', // 换算比例
-      'pages/ComparePrice/index', // 价格比较
     ],
     window: {
       backgroundTextStyle: 'light',
