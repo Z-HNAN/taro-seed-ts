@@ -1,5 +1,6 @@
 import Taro, { useState } from '@tarojs/taro'
-import { View, Text, Button } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
+import { AtButton } from 'taro-ui'
 
 interface IndexProps {
   count: number;
@@ -32,9 +33,9 @@ const Index: Taro.FC<IndexProps> = (props: IndexProps) => {
   return (
     <View className='index'>
       <Text>Hello world!</Text>
-      <Button onClick={incrementStateCount}>stateCount: {count}</Button>
-      <Button onClick={incrementReduxAsyncCount}>reduxAsyncCount: {reduxCount}</Button>
-      <Button onClick={incrementReduxSyncCount}>reduxSyncCount: {reduxCount}</Button>
+      <AtButton onClick={incrementStateCount}>stateCount: {count}</AtButton>
+      <AtButton onClick={incrementReduxAsyncCount}>reduxAsyncCount: {reduxCount}</AtButton>
+      <AtButton onClick={incrementReduxSyncCount}>reduxSyncCount: {reduxCount}</AtButton>
     </View>
   )
 }
