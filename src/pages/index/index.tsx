@@ -1,10 +1,11 @@
 import { ComponentClass } from 'react'
-import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Text, Button } from '@tarojs/components'
-import { ClButton } from 'mp-colorui'
+import Taro, { PureComponent, Config } from '@tarojs/taro'
 import { Dispatch } from 'redux'
 import { connect } from '@tarojs/redux'
 import { IConnectState } from '@src/store/reducer'
+
+import IndexComponent from './component'
+
 import './index.scss'
 
 type IndexProps = {
@@ -43,14 +44,7 @@ const mapDispatchToProps = (dispatch: Dispatch<any>) => {
 }
 
 @connect(mapStateToProps, mapDispatchToProps)
-class Index extends Component<IProps, IState> {
-  constructor (props) {
-    super(props)
-    this.state = {
-      count: 0
-    }
-  }
-
+class Index extends PureComponent<IProps, IState> {
   componentWillMount () { }
 
   componentDidMount () { }
@@ -72,12 +66,6 @@ class Index extends Component<IProps, IState> {
     navigationBarTitleText: '首页'
   }
 
-  asynAdd () {
-    this.setState({
-      count: this.state.count + 1
-    })
-  }
-
   navigate () {
     Taro.navigateTo({ url: '/pages/ComparePrice/index' }).then(() => {
       console.log('navigated!!!');
@@ -89,19 +77,11 @@ class Index extends Component<IProps, IState> {
       onAsyncAdd,
     } = this.props
 
-    const {
-      count
-    } = this.state
-
-    console.log(this.props)
-
     return (
-      <View className='index'>
-        <Text>Hello world!</Text>
-        <Button onClick={onAsyncAdd}>onAsyncAdd</Button>
-        <Button onClick={this.asynAdd}>onSyncAdd: {count}</Button>
-        <ClButton onClick={this.navigate}>Go</ClButton>
-      </View>
+      <IndexComponent
+        onAsyncAdd={onAsyncAdd}
+        onNavigateTo={this.navigate}
+      />
     )
   }
 }
