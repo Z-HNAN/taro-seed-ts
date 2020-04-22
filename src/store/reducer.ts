@@ -1,13 +1,12 @@
 import { combineReducers } from 'redux'
 
-// import RecipeReducer, { StateType } from '@pages/Recipe/reducer'
+import IndexReducer, { StateType } from '@pages/Index/reducer'
 
 
 export interface IConnectState {
-  // recipe: StateType
-  
+  index: StateType
 }
 
 export default combineReducers<IConnectState>({
-  // recipe: RecipeReducer,
+  index: IndexReducer,
 })
