@@ -4,16 +4,6 @@
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 
-import Index from '@pages/Index'
-import ComparePrice from '@pages/ComparePrice'
-import Conversion from '@pages/Conversion'
-import PurchaseOrder from '@pages/PurchaseOrder'
-import RecipeLib from '@pages/Recipe/Lib'
-import RecipeCreate from '@pages/Recipe/Create'
-import RecipeInfo from '@pages/Recipe/Info'
-import RecipeMake from '@pages/Recipe/Make'
-import RecipeAddPurchase from '@pages/Recipe/AddPurchase'
-
 type PageState = {
 }
 
