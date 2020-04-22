@@ -1,5 +1,6 @@
 import Taro, { useState } from '@tarojs/taro'
 import { View, Text, Button } from '@tarojs/components'
+import { AtButton } from 'taro-ui'
 
 interface IndexProps {
   onAsyncAdd: () => any;
@@ -18,6 +19,7 @@ const Index: Taro.FC<IndexProps> = (props: IndexProps) => {
       <Text>Hello world!</Text>
       <Button onClick={onAsyncAdd}>onAsyncAdd</Button>
       <Button onClick={() => { setCount((c) => c + 1) }}>onSyncAdd: {count}</Button>
+      <AtButton>Taro-UI</AtButton>
     </View>
   )
 }
