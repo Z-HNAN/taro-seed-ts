@@ -1,13 +1,13 @@
-import { Async, Sync } from 'redux-action-boilerplate'
+import { asyncCreator, syncCreator } from 'create-redux-action'
 
-export const async = new Async({
+export const async = asyncCreator({
   prefix: 'index',
   actions: [
     'asyncAdd'
   ]
 })
 
-export const sync = new Sync({
+export const sync = syncCreator({
   prefix: 'index',
   actions: [
     'add'
